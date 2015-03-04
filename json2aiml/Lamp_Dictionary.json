@@ -1,0 +1,63 @@
+{ "Domain":"Bulb","Language":"English",
+
+"Predicates": {
+	"Light":
+		{true:
+			["the light shines",
+			"(the light|the lamp|the bulb) (shines|gives light|glows)|there is light"],
+	    false:
+			["the light does not shine",
+			"(the light|the lamp|the bulb) does(n't| not) (shine|give light|glow)|there is no light|no light"]},
+
+	"Bulb":
+		{true:
+			["the bulb is fine",
+			"(the lamp|the bulb) is (fine|good|all right|in good order|ok|working)"],
+		false:
+			["the bulb is not fine",
+			"(the lamp|the bulb) (is (broken|out of order)|is not (fine|good|all right|in good order|ok|working))"]},
+		
+	"Switch":
+		{true:["the switch is on","the switch is on"],
+		false:["the switch is off","the switch is off"]},
+
+	"Condi":
+		{true:
+			["the air conditioner is on",
+			"the air conditioner (is on|is not off)"],
+		false:
+			["the air conditioner is off",
+			"the air conditioner (is off|is not on)"]},
+
+	"Window":
+		{true:
+			["the window is open",
+			"the window (is open|is not closed)"],
+		false:
+			["the window is closed",
+			"the window (is closed|is not open)"]}
+	},
+
+"Actions": {
+	"OffLight":
+		["turn off the switch",
+		"turn (off|out) the (switch|light)|switch off the (light|lamp|bulb)"],
+		
+	"OnLight":
+		["turn on the switch",
+		"turn on (switch|the light)|switch on the (light|lamp|bulb)"],
+		
+	"ChBulb":["change the bulb","change the bulb"],
+	
+	"OffCondi":
+		["switch off the air conditioner",
+		"(switch|turn) (off|out) the air conditioner"],
+		
+	"OnCondi":
+		["switch on the air conditioner",
+		"(switch|turn on) the air conditioner"],
+		
+	"OffWind":["close the window","close the window"],
+	
+	"OnWind":["open the window","open the window"]}
+}

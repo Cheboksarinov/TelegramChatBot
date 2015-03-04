@@ -1,0 +1,30 @@
+{ "Domain":"Bulb","Language":"English",
+
+"Predicates": {
+	"L": {true:"(the light|the lamp|the bulb) (shines|gives light|glows)|there is light",
+	     false:"(the light|the lamp|the bulb) does(n't| not) (shine|give light|glow)|there is no light|no light"},
+
+	"B": {true:"(the lamp|the bulb) is (fine|good|all right|in good order|ok|working)",
+		 false:"(the lamp|the bulb) (is (broken|out of order)|is not (fine|good|all right|in good order|ok|working))"},
+		
+
+	"S": {true:"the switch is on",
+		 false:"the switch is off"},
+
+	"C": {true:"the air conditioner (is on|is not off)",
+		 false:"the air conditioner (is off|is not on)"},
+
+	"W": {true:"the window (is open|is not closed)",
+		 false:"the window (is closed|is not open)"}
+	},
+
+"Actions": {
+	"off_light":"turn (off|out) the (switch|light)|switch off the (light|lamp|bulb)",
+	"on_light":"turn on (switch|the light)|switch on the (light|lamp|bulb)",
+	"ch_bulb":"change the bulb",
+	"off_cond":"(switch|turn on) the air conditioner",
+	"on_cond":"(switch|turn) (off|out) the air conditioner",
+	"off_wind":"close the window",
+	"on_wind":"open the window"
+	}
+}

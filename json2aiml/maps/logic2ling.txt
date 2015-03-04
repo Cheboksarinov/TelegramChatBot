@@ -1,0 +1,10 @@
+Light true : the light shines
+Light false : the light does not shine
+Bulb true : the bulb is fine
+Bulb false : the bulb is not fine
+Switch true : the switch is on
+Switch false : the switch is off
+Condi true : the air conditioner is on
+Condi false : the air conditioner is off
+Window true : the window is open
+Window false : the window is closed

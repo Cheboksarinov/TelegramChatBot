@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<aiml>
+  <category>
+    <pattern>PRED<regexp>(the light|the lamp|the bulb) (shines|gives light|glows)|there is light</regexp>
+    </pattern>
+    <template>
+      <srai>VPRED Light true</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>PRED<regexp>(the light|the lamp|the bulb) does(n't| not) (shine|give light|glow)|there is no light|no light</regexp>
+    </pattern>
+    <template>
+      <srai>VPRED Light false</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>PRED<regexp>(the lamp|the bulb) is (fine|good|all right|in good order|ok|working)</regexp>
+    </pattern>
+    <template>
+      <srai>VPRED Bulb true</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>PRED<regexp>(the lamp|the bulb) (is (broken|out of order)|is not (fine|good|all right|in good order|ok|working))</regexp>
+    </pattern>
+    <template>
+      <srai>VPRED Bulb false</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>PRED<regexp>the switch is on</regexp>
+    </pattern>
+    <template>
+      <srai>VPRED Switch true</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>PRED<regexp>the switch is off</regexp>
+    </pattern>
+    <template>
+      <srai>VPRED Switch false</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>PRED<regexp>the air conditioner (is on|is not off)</regexp>
+    </pattern>
+    <template>
+      <srai>VPRED Condi true</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>PRED<regexp>the air conditioner (is off|is not on)</regexp>
+    </pattern>
+    <template>
+      <srai>VPRED Condi false</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>PRED<regexp>the window (is open|is not closed)</regexp>
+    </pattern>
+    <template>
+      <srai>VPRED Window true</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>PRED<regexp>the window (is closed|is not open)</regexp>
+    </pattern>
+    <template>
+      <srai>VPRED Window false</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ACTN<regexp>turn (off|out) the (switch|light)|switch off the (light|lamp|bulb)</regexp>
+    </pattern>
+    <template>
+      <srai>OffLight</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ACTN<regexp>turn on (switch|the light)|switch on the (light|lamp|bulb)</regexp>
+    </pattern>
+    <template>
+      <srai>OnLight</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ACTN<regexp>change the bulb</regexp>
+    </pattern>
+    <template>
+      <srai>ChBulb</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ACTN<regexp>(switch|turn) (off|out) the air conditioner</regexp>
+    </pattern>
+    <template>
+      <srai>OffCondi</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ACTN<regexp>(switch|turn on) the air conditioner</regexp>
+    </pattern>
+    <template>
+      <srai>OnCondi</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ACTN<regexp>close the window</regexp>
+    </pattern>
+    <template>
+      <srai>OffWind</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ACTN<regexp>open the window</regexp>
+    </pattern>
+    <template>
+      <srai>OnWind</srai>
+    </template>
+  </category>
+</aiml>

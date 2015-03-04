@@ -1,0 +1,7 @@
+OffLight
+OnLight
+ChBulb
+OffCondi
+OnCondi
+OffWind
+OnWind

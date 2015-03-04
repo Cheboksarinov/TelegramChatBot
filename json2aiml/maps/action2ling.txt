@@ -1,0 +1,7 @@
+OffLight : turn off the switch
+OnLight : turn on the switch
+ChBulb : change the bulb
+OffCondi : switch off the air conditioner
+OnCondi : switch on the air conditioner
+OffWind : close the window
+OnWind : open the window
