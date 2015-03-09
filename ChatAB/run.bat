@@ -1,4 +1,4 @@
-java -cp lib/Ab.jar Main bot=super action=chat trace=false
+java -jar target/program-ab-0.4.3-SNAPSHOT.jar bot=alice2 action=chat trace=false
 
 
 
