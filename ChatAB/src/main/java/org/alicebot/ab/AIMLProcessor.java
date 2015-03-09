@@ -92,6 +92,8 @@ public class AIMLProcessor {
     }
 
     public static String cleanPattern(String pattern) {
+        if (pattern.contains("<that>") || pattern.contains("<THAT>"))
+            System.out.print(123);
         pattern = pattern.replaceAll("(\r\n|\n\r|\r|\n)", " ");
         pattern = pattern.replaceAll("  "," ");
         return pattern.trim();

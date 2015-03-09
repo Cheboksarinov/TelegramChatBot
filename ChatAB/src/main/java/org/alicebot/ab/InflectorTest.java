@@ -2,10 +2,6 @@ package org.alicebot.ab;
 
 import junit.framework.TestCase;
 import org.junit.Test;
-// http://stackoverflow.com/questions/4757800/configuring-intellij-idea-for-unit-testing-with-junit
-/**
- * Created by User on 3/31/14.
- */
 public class InflectorTest extends TestCase {
     @Test
     public void testPluralize() throws Exception {

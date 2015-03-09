@@ -1,5 +1,6 @@
 package org.alicebot.ab;
 import java.util.ArrayList;
+import java.util.LinkedList;
 /* Program AB Reference AIML 2.0 implementation
         Copyright (C) 2013 ALICE A.I. Foundation
         Contact: info@alicebot.org
@@ -45,8 +46,30 @@ public class Path extends ArrayList<String>{
      */
     public static Path sentenceToPath(String sentence) {
         sentence = sentence.trim();
-        return arrayToPath(sentence.split(" "));
-    }
+		LinkedList<String> s = new LinkedList<String>();
+        while (sentence.contains("<REGEXP>")) {
+			int sIndex = sentence.indexOf("<REGEXP>");
+			int eIndex = sentence.indexOf("</REGEXP>");
+			String[] sRegexp;
+			if (sIndex != 0) {
+				sRegexp = sentence.substring(0, sIndex - 1).trim().split(" ");
+				for (String str : sRegexp)
+					s.add(str);
+			}
+			String regexpStr = sentence.substring(sIndex, eIndex + 9).trim();
+			s.add(regexpStr);
+			sentence = sentence.substring(eIndex + 10, sentence.length());
+		}
+		String[] eRegexp;
+		eRegexp = sentence.split(" ");
+		for (String str : eRegexp)
+			s.add(str);
+		String[] finalStr = new String[s.size()];
+		for (int i = 0; i < s.size(); i++) {
+			finalStr[i] = s.get(i);
+		}
+		return arrayToPath(finalStr);
+	}
 
     /**
      * The inverse of sentenceToPath

@@ -327,10 +327,33 @@ public class Category {
         template = Utilities.fixCSV(template);
         filename = Utilities.fixCSV(filename);
         }
-        this.pattern = pattern.trim().toUpperCase();
+//        if (pattern.contains("<that>")) {
+//            pattern = pattern.trim();
+//            int sIndex = pattern.indexOf("<that>");
+//            int eIndex = pattern.indexOf("</that>");
+//            String BeforeThat = "";
+//            if (sIndex != 0)
+//                BeforeThat = pattern.substring(0, sIndex - 1);
+//            String InThat = pattern.substring(sIndex, eIndex + 6);
+//            String AfterThat = "";
+//            if (eIndex != pattern.length() - 1)
+//                pattern.substring((eIndex + 7), pattern.length() - 1);
+//            this.pattern = BeforeThat.toUpperCase() + InThat + AfterThat.toUpperCase();
+//        }
+//        else
+            this.pattern = pattern.trim().toUpperCase();
         this.that = that.trim().toUpperCase();
         this.topic = topic.trim().toUpperCase();
-        this.template = template.replace("& ", " and "); // XML parser treats & badly
+        if (template.contains("<regexp>")) {
+            int BeforeR = template.indexOf("<regexp>");
+            int AfterR = template.indexOf("</regexp>") + 8;
+            String BeforeRStr = template.substring(0, BeforeR - 1).replace("& ", " and ");
+            String RStr = template.substring(BeforeR, AfterR + 8);
+            String AfterRStr = template.substring(AfterR + 9, template.length() - 1).replace("& ", " and ");
+            template = BeforeRStr + RStr + AfterRStr;
+            this.template = template;
+        }
+        else this.template = template.replace("& ", " and "); // XML parser treats & badly
         this.filename = filename;
         this.activationCnt = activationCnt;
         matches = null;

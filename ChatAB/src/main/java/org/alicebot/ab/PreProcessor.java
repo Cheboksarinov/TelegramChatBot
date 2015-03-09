@@ -245,7 +245,9 @@ public class PreProcessor {
             while ((strLine = br.readLine()) != null)   {
                 strLine = strLine.trim();
                 if (strLine.length() > 0) {
+                    System.out.println("Before normalize: " + strLine);
                     String norm = normalize(strLine).toUpperCase();
+                    System.out.println("After normalize: " + norm);
                     String sentences[] = sentenceSplit(norm); {
                         if (sentences.length > 1) {
                             for (String s : sentences)

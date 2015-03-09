@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+<category><pattern>& <regexp>& </regexp>& </pattern>
+<template>Super</template>
+</category>
+</aiml>

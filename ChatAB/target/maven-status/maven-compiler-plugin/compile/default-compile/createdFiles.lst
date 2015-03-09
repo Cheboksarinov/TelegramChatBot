@@ -2,6 +2,7 @@ org\alicebot\ab\Category$2.class
 org\alicebot\ab\NodemapperOperator.class
 org\alicebot\ab\Chat.class
 org\alicebot\ab\AIMLProcessor.class
+org\alicebot\ab\Main.class
 org\alicebot\ab\Timer.class
 org\alicebot\ab\Predicates.class
 org\alicebot\ab\utils\CalendarUtils.class
@@ -31,7 +32,6 @@ org\alicebot\ab\Path.class
 org\alicebot\ab\TestAB.class
 org\alicebot\ab\ParseState.class
 org\alicebot\ab\PreProcessor.class
-Main.class
 org\alicebot\ab\TripleStore.class
 org\alicebot\ab\PCAIMLProcessorExtension.class
 org\alicebot\ab\StarBindings.class

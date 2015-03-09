@@ -42,6 +42,10 @@ public class Graphmaster {
     public int categoryCnt = 0;
     public static boolean enableShortCuts = false;
 
+	public String wholeInput = "";
+	public boolean fromREGEXP = false;
+	public int startR = -1;
+	public int endR = -1;
     /**
      * Constructor
      *
@@ -140,7 +144,6 @@ public class Graphmaster {
      */
     void addPath(Path path, Category category) {
         addPath(root, path, category);
-
     }
 
     /**
@@ -163,6 +166,9 @@ public class Graphmaster {
             node.shortCut = true;
         }
         else if (NodemapperOperator.containsKey(node, path.word)) {
+			if (path.word.equals("<REGEXP>") || path.word.contains("<REGEXP>")) {
+				System.out.println("word " + path.word);
+			}
             if (path.word.startsWith("<SET>")) addSets(path.word, bot, node, category.getFilename());
             Nodemapper nextNode = NodemapperOperator.get(node, path.word);
             addPath(nextNode, path.next, category);
@@ -179,6 +185,10 @@ public class Graphmaster {
                 NodemapperOperator.upgrade(node);
                 upgradeCnt++;
             }
+			if (path.word.equals("<REGEXP>") || path.word.contains("<REGEXP>"))
+			{
+				System.out.println("word " + path.word);
+			}
             NodemapperOperator.put(node, path.word, nextNode);
             addPath(nextNode, path.next, category);
             int offset = 1;
@@ -411,19 +421,61 @@ public class Graphmaster {
             else if (uword.equals("<TOPIC>")) {starIndex = 0; starState = "topicStar";}
             //System.out.println("path.next= "+path.next+" node.get="+node.get(uword));
             matchTrace += "["+uword+","+uword+"]";
-            if (path != null && NodemapperOperator.containsKey(node, uword) &&
-                    (matchedNode = match(path.next, NodemapperOperator.get(node, uword), inputThatTopic, starState, starIndex, inputStars, thatStars, topicStars, matchTrace)) != null)  {
-                 return matchedNode;
-            } else {
-                fail("word", matchTrace);
-                return null;
-            }
+			if (path != null) {
+				Path nextPath = path;
+				if (!NodemapperOperator.containsKey(node, uword)) {
+					String REGInput = inputThatTopic.substring(inputThatTopic.toUpperCase().indexOf(uword));
+					int[] ageOfReg = NodemapperOperator.containsKeyReg(node, REGInput);
+					if (ageOfReg[0] == 0 && ageOfReg[1] != -1) {
+						String word = REGInput.substring(ageOfReg[1]).trim();
+						if (word.contains(" ")) word = word.substring(0, word.indexOf(" "));
+						while (!nextPath.word.equals(word))
+							nextPath = nextPath.next;
+						if ((matchedNode = match(nextPath, NodemapperOperator.getReg(node, REGInput), inputThatTopic, starState, starIndex, inputStars, thatStars, topicStars, matchTrace)) != null) {
+							return matchedNode;
+						}
+					}
+					fail("word", matchTrace);
+					return null;
+				}
+				if ((matchedNode = match(nextPath.next, NodemapperOperator.get(node, uword), inputThatTopic, starState, starIndex, inputStars, thatStars, topicStars, matchTrace)) != null) {
+					return matchedNode;
+				} else {
+					fail("word", matchTrace);
+					return null;
+				}
+			} else {
+				fail("word", matchTrace);
+				return null;
+			}
         } catch (Exception ex) {
             System.out.println("wordMatch: "+Path.pathToSentence(path)+": "+ex);
             ex.printStackTrace();
             return null;
         }
     }
+
+//	final Nodemapper wordMatch(Path path, Nodemapper node, String inputThatTopic, String starState, int starIndex, String[] inputStars, String[] thatStars, String[] topicStars, String matchTrace) {
+//		Nodemapper matchedNode;
+//		try {
+//			String uword = path.word.toUpperCase();
+//			if (uword.equals("<THAT>")) {starIndex = 0; starState = "thatStar";}
+//			else if (uword.equals("<TOPIC>")) {starIndex = 0; starState = "topicStar";}
+//			//System.out.println("path.next= "+path.next+" node.get="+node.get(uword));
+//			matchTrace += "["+uword+","+uword+"]";
+//			if (path != null && NodemapperOperator.containsKey(node, uword) &&
+//					(matchedNode = match(path.next, NodemapperOperator.get(node, uword), inputThatTopic, starState, starIndex, inputStars, thatStars, topicStars, matchTrace)) != null)  {
+//				return matchedNode;
+//			} else {
+//				fail("word", matchTrace);
+//				return null;
+//			}
+//		} catch (Exception ex) {
+//			System.out.println("wordMatch: "+Path.pathToSentence(path)+": "+ex);
+//			ex.printStackTrace();
+//			return null;
+//		}
+//	}
     final Nodemapper dollarMatch(Path path, Nodemapper node, String inputThatTopic, String starState, int starIndex, String[] inputStars, String[] thatStars, String[] topicStars, String matchTrace) {
         String uword = "$"+path.word.toUpperCase();
         Nodemapper matchedNode;

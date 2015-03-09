@@ -18,15 +18,21 @@
         Free Software Foundation, Inc., 51 Franklin St, Fifth Floor,
         Boston, MA  02110-1301, USA.
 */
+package org.alicebot.ab;
 
 import org.alicebot.ab.*;
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 
 
 public class Main {
-
+    public static boolean anyKey = false;
+    public static boolean findedByThat = false;
+	public static boolean regExpKey = false;
     public static void main (String[] args) {
 
 
@@ -75,6 +81,7 @@ public class Main {
         if (bot.brain.getCategories().size() < MagicNumbers.brain_print_size) bot.brain.printgraph();
         if (MagicBooleans.trace_mode) System.out.println("Action = '"+action+"'");
         if (action.equals("chat") || action.equals("chat-app")) {
+            anyKey = false;
 			boolean doWrites = ! action.equals("chat-app");
 			TestAB.testChat(bot, doWrites, MagicBooleans.trace_mode);
 		}
@@ -84,12 +91,12 @@ public class Main {
         else if (action.equals("abwq")){AB ab = new AB(bot, TestAB.sample_file);  ab.abwq();}
 		else if (action.equals("test")) { TestAB.runTests(bot, MagicBooleans.trace_mode);     }
         else if (action.equals("shadow")) { MagicBooleans.trace_mode = false; bot.shadowChecker();}
-        else if (action.equals("iqtest")) { ChatTest ct = new ChatTest(bot);
+/*        else if (action.equals("iqtest")) { ChatTest ct = new ChatTest(bot);
                 try {
                     ct.testMultisentenceRespond();
                 }
             catch (Exception ex) { ex.printStackTrace(); }
-            }
+            }*/
         else System.out.println("Unrecognized action "+action);
     }
     public static void convert(Bot bot, String action) {

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+<category><pattern>b0unt <regexp>qwe qwer qwert</regexp> c0unt</pattern>
+<template>1 You are awesome!</template>
+</category>
+<category><pattern><regexp>qwe qwer qwert</regexp> c0unt</pattern>
+<template>2 You are awesome!</template>
+</category>
+<category><pattern>b0unt <regexp>qwe qwer qwert</regexp></pattern>
+<template>3 You are awesome!</template>
+</category>
+<category><pattern><regexp>qwe qwer qwert</regexp></pattern>
+<template>4 You are awesome!</template>
+</category>
+<category><pattern>b0unt c0unt</pattern>
+<template>5 You are awesome!</template>
+</category>
+<category><pattern>b0unt v0unt</pattern>
+<template>7 You are awesome!</template>
+</category>
+<category><pattern><regexp>qwe qwer qwert</regexp> <regexp>wer wert werty</regexp></pattern>
+<template>6 You are awesome!</template>
+</category>
+</aiml>

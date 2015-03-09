@@ -1,0 +1,7 @@
+0,B0UNT <REGEXP>QWE QWER QWERT</REGEXP> C0UNT,*,*,1 You are awesome!,tests.aiml
+0,<REGEXP>QWE QWER QWERT</REGEXP> C0UNT,*,*,2 You are awesome!,tests.aiml
+0,B0UNT <REGEXP>QWE QWER QWERT</REGEXP>,*,*,3 You are awesome!,tests.aiml
+0,<REGEXP>QWE QWER QWERT</REGEXP>,*,*,4 You are awesome!,tests.aiml
+0,B0UNT C0UNT,*,*,5 You are awesome!,tests.aiml
+0,B0UNT V0UNT,*,*,7 You are awesome!,tests.aiml
+0,<REGEXP>QWE QWER QWERT</REGEXP> <REGEXP>WER WERT WERTY</REGEXP>,*,*,6 You are awesome!,tests.aiml

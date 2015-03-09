@@ -44,3 +44,14 @@
 0,HOE,*,*,<srai>FILTER INSULT</srai>,insults.aiml
 0,YOU ARE FAT,*,*,<srai>FILTER INSULT</srai>,insults.aiml
 0,YOU ARE CRAZY,*,*,<srai>FILTER INSULT</srai>,insults.aiml
+0,BITCH YOU *,*,*,<srai>FILTER INSULT</srai>,insults.aiml
+0,DICKHEAD,*,*,<srai>FILTER INSULT</srai>,insults.aiml
+0,YOU DIRTY *,*,*,<srai>FILTER INSULT</srai>,insults.aiml
+0,FAG,*,*,<srai>FILTER INSULT</srai>,insults.aiml
+0,YOU ARE A DIRTY *,*,*,<srai>FILTER INSULT</srai>,insults.aiml
+0,YOU ARE A MORON,*,*,<srai>FILTER INSULT</srai>,insults.aiml
+0,YOU ARE RETARDED,*,*,<srai>FILTER INSULT</srai>,insults.aiml
+0,YOU BITCH *,*,*,<srai>FILTER INSULT</srai>,insults.aiml
+0,SCREW *,*,*,<srai>FILTER INSULT</srai>,insults.aiml
+0,NIGGERS,*,*,<srai>FILTER INSULT</srai>,insults.aiml
+0,NO B ASTERISK ASTERISK ASTERISK ASTERISK *,*,*,<srai>FILTER INSULT</srai>,insults.aiml

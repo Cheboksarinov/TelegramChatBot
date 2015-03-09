@@ -1,9 +1,8 @@
 package org.alicebot.ab;
 
-import junit.framework.Assert;
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.Matchers;
 import org.junit.Test;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
 
 public class ChatTest {
     Bot bot;
@@ -277,7 +276,7 @@ public class ChatTest {
             String request = pairs[i][0];
             String expected = pairs[i][1];
             String actual = chatSession.multisentenceRespond(request);
-            assertThat(actual, containsString(expected));
+            MatcherAssert.assertThat(actual, Matchers.containsString(expected));
         }
         System.out.println("Passed "+pairs.length+" test cases.");
     }

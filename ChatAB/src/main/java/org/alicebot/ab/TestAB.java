@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
  * Created by User on 5/13/2014.
  */
 public class TestAB {
+	public static String humanRequest = "";
     public static String sample_file = "sample.random.txt";
     public static void testChat (Bot bot, boolean doWrites, boolean traceMode) {
         Chat chatSession = new Chat(bot, doWrites);
@@ -18,6 +19,7 @@ public class TestAB {
         String textLine="";
         while (true) {
             textLine = IOUtils.readInputTextLine("Human");
+            Main.findedByThat = false;
             if (textLine == null || textLine.length() < 1)  textLine = MagicStrings.null_input;
             if (textLine.equals("q")) System.exit(0);
             else if (textLine.equals("wq")) {
@@ -25,7 +27,7 @@ public class TestAB {
                 System.exit(0);
             }
             else if (textLine.equals("sc")) sraixCache("c:/ab/data/sraixdata6.txt", chatSession);
-            else if (textLine.equals("iqtest")) {
+/*            else if (textLine.equals("iqtest")) {
                 ChatTest ct = new ChatTest(bot);
                 try {
                     ct.testMultisentenceRespond();
@@ -33,10 +35,11 @@ public class TestAB {
                 catch (Exception ex) {
                     ex.printStackTrace();
                 }
-            }
+            }*/
             else if (textLine.equals("ab")) testAB(bot, sample_file);
             else {
                 String request = textLine;
+				humanRequest = request.toUpperCase();
                 if (MagicBooleans.trace_mode) System.out.println("STATE="+request+":THAT="+chatSession.thatHistory.get(0).get(0)+":TOPIC="+chatSession.predicates.get("topic"));
                 String response = chatSession.multisentenceRespond(request);
                 while (response.contains("&lt;")) response = response.replace("&lt;","<");

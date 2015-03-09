@@ -99,7 +99,7 @@
               <archive>
                 <manifest>
                     <!-- Jar file entry point -->
-                    <mainClass>Main</mainClass>
+                    <mainClass>org.alicebot.ab.Main</mainClass>
                 </manifest>
               </archive>
             </configuration>
