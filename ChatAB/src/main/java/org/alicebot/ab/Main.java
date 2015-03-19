@@ -20,7 +20,6 @@
 */
 package org.alicebot.ab;
 
-import org.alicebot.ab.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
