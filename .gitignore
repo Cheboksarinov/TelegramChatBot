@@ -1,0 +1,10 @@
+*.class
+/ChatAB/.idea/
+/ChatAB/target/classes
+/ChatAB/target/generated-sources
+/ChatAB/target/generated-test-sources
+/ChatAB/target/maven-archiver
+/ChatAB/target/maven-status
+/ChatAB/target/surefire-reports
+/ChatAB/target/test-classes
+/ChatAB/target/MANIFEST.MF
