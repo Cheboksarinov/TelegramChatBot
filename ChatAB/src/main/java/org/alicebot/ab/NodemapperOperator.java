@@ -95,7 +95,7 @@ public class NodemapperOperator {
 			return node.map.get(key);
 		}
 		else {// node.type == unary_node_mapper
-			if (node.key.contains("</REGEXP>")) {
+			if (node.key != null && node.key.contains("</REGEXP>")) {
 				Pattern p = Pattern.compile(node.key.substring(8, node.key.length() - 9));
 				Matcher m = p.matcher(key.toUpperCase());
 				if (m.find()) return node.value;
@@ -154,7 +154,7 @@ public class NodemapperOperator {
 				}
 			}
 		}
-		else if (node.key.contains("</REGEXP>")) {
+		else if (node.key != null && node.key.contains("</REGEXP>")) {
 			Pattern p = Pattern.compile(node.key.substring(8, node.key.length() - 9).toLowerCase());
 			Matcher m = p.matcher(key.toLowerCase());
 			if (m.find()) {
