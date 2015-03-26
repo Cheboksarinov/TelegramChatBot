@@ -1,0 +1,48 @@
+(define (domain bulb)
+	(:Predicates
+		(L Лампа горит/свет есть)
+		(-L нет света)
+		(B Лампа исправна)
+		(S Выключатель включен)
+		(C Кондиционер включен)
+		(W Окно открыто)
+	)
+	(
+		(off_light=Выключить выключатель)
+		(on_light=Включить выключатель)
+		(ch_bulb=Заменить лампу)
+		(off_cond=Выключить кондиционер)
+		(on_cond=Включить кондиционер)
+		(off_wind=Закрыть окно)
+		(on_wind=Открыть окно)
+	)
+	(: action off_light <--Выключить выключатель-->
+		:precond (?S)
+		:effect (~S)
+	)
+
+	(: action on_light
+		:parameters (S L)
+		:precond (?S)
+		:effect (S & ?L)
+	)
+
+	(: action ch_bulb :precond (?B & ~S) :effect (B))
+
+	(: action off_cond :precond (?C) :effect (~C))
+
+	(: action on_cond :precond (?C) :effect (C))
+
+	(: action off_wind :precond (?W) :effect (~W))
+
+	(: action on_wind :precond (?W) :effect (W))
+
+	(: axiom (L <-> B & S))
+)
+
+(define (problem switch_on)
+	(:domain bulb)
+	(:init (~L))
+	(:goal (L)))
+
+
