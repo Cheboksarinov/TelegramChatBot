@@ -9,8 +9,8 @@ import java.util.Map;
 public class ObjectsJson {
     public Map<String, LinkedTreeMap> Predicates;
     public Map<String, ArrayList<String>> Actions;
-    public String Domain;
-    public String Language;
+    public ArrayList<String> Axioms = new ArrayList<String>();
+
     public List<String> namePredicates = new ArrayList<String>();
     public List<String> sentencesPredicates = new ArrayList<String>();
     public List<String> regSentencePredicates = new ArrayList<String>();
