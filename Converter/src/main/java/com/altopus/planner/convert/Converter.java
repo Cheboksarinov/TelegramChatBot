@@ -8,6 +8,8 @@ import java.util.List;
 
 public class Converter {
     private ObjectsJson objectsJson;
+    private final String filename = "alice2\\domain.pddl.txt";
+
     public Converter(ObjectsJson objectsJson){
        this.objectsJson = objectsJson;
     }
@@ -41,10 +43,10 @@ public class Converter {
         }
     }
 
-    public void parsePDDL(String file) throws FileNotFoundException {
+    public void parsePDDL() throws FileNotFoundException {
 
         try {
-            BufferedReader pddl = new BufferedReader(new FileReader(new File(file).getAbsoluteFile()));
+            BufferedReader pddl = new BufferedReader(new FileReader(new File(filename).getAbsoluteFile()));
             try {
                 StringBuilder sb = new StringBuilder();
                 String s;
@@ -137,15 +139,17 @@ public class Converter {
         action.close();
     }
 
-    public void start(String file) throws FileNotFoundException{
+    public ObjectsJson start() throws FileNotFoundException{
 
         parserPrediction(objectsJson.namePredicates, objectsJson.sentencesPredicates, objectsJson.regSentencePredicates);
         parserAction(objectsJson.nameActions, objectsJson.sentencesAction, objectsJson.regSentenceAction);
 
-        parsePDDL(file);
+        parsePDDL();
 
         createAction2lingTxt(objectsJson.nameActions, objectsJson.sentencesAction);
         createLogic2lingTxt(objectsJson.namePredicates, objectsJson.sentencesPredicates);
         createActionTxt(objectsJson.nameActions);
+
+        return  objectsJson;
     }
 }

@@ -19,4 +19,5 @@ public class ObjectsJson {
     public List<String> regSentenceAction = new ArrayList<String>();
 
     public ObjectsJson() {};
+
 }

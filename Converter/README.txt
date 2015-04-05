@@ -1,0 +1,1 @@
+ƒл€ получени€ структуры Action, Predicates и Axioms использовать класс DataBase.
