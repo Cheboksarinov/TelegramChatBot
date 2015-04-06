@@ -44,5 +44,3 @@
 	(:domain bulb)
 	(:init (~L))
 	(:goal (L)))
-
-
