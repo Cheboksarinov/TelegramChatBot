@@ -32,8 +32,9 @@ public class DataBase {
             Action action = new Action();
             action.sentences = link.get(0);
             action.regSentence = link.get(1);
-            action.effects = link.get(2);
-            action.preconditions = link.get(3);
+            action.preconditions = link.get(2);
+            action.effects = link.get(3);
+
             actions.put(nameAction.getKey(), action);
         }
         return actions;
@@ -54,5 +55,21 @@ public class DataBase {
         public String effects;
 
         public Action() { }
+    }
+
+    public ArrayList<String> getAxiomsInAIMLFormat() {
+        ArrayList<String> formattedAxioms = new ArrayList<String>();
+        for (String axiom : objectsJson.Axioms) {
+            axiom = axiom.replaceAll(" -> ", " imp ");
+            axiom = axiom.replaceAll(" <-> ", " iff ");
+            axiom = axiom.replaceAll(" & ", " and ");
+            axiom = axiom.replaceAll(" \\| ", " or ");
+            axiom = axiom.replaceAll(" ^ ", " xor ");
+            axiom = axiom.replaceAll(" ~ ", " not ");
+
+            formattedAxioms.add(axiom);
+        }
+
+        return formattedAxioms;
     }
 }

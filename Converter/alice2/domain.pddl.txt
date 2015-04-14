@@ -1,11 +1,11 @@
 (define (domain bulb)
 	(:Predicates
-		(L Лампа горит/свет есть)
-		(-L нет света)
-		(B Лампа исправна)
-		(S Выключатель включен)
-		(C Кондиционер включен)
-		(W Окно открыто)
+		(Light Лампа горит/свет есть)
+		(-Light нет света)
+		(Bulb Лампа исправна)
+		(Switch Выключатель включен)
+		(Condi Кондиционер включен)
+		(Window Окно открыто)
 	)
 	(
 		(off_light=Выключить выключатель)
@@ -17,30 +17,30 @@
 		(on_wind=Открыть окно)
 	)
 	(: action OffLight 
-		:precond (?S)
-		:effect (~S)
+		:precond (?Switch)
+		:effect (~Switch)
 	)
 
 	(: action OnLight
-		:parameters (S L)
-		:precond (?S)
-		:effect (S & ?L)
+		:parameters (Switch Light)
+		:precond (?Switch)
+		:effect (Switch & ?Light)
 	)
 
-	(: action ChBulb :precond (?B & ~S) :effect (B))
+	(: action ChBulb :precond (?Bulb & ~Switch) :effect (Bulb))
 
-	(: action OffCondi :precond (?C) :effect (~C))
+	(: action OffCondi :precond (?Condi) :effect (~Condi))
 
-	(: action OnCondi :precond (?C) :effect (C))
+	(: action OnCondi :precond (?Condi) :effect (Condi))
 
-	(: action OffWind :precond (?W) :effect (~W))
+	(: action OffWind :precond (?Window) :effect (~Window))
 
-	(: action OnWind :precond (?W) :effect (W))
+	(: action OnWind :precond (?Window) :effect (Window))
 
-	(: axiom (L <-> B & S))
+	(: axiom (Light <-> Bulb & Switch))
 )
 
 (define (problem switch_on)
 	(:domain bulb)
-	(:init (~L))
-	(:goal (L)))
+	(:init (~Light))
+	(:goal (Light)))
