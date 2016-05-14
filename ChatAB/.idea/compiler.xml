@@ -26,5 +26,8 @@
         <module name="program-ab" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="program-ab" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

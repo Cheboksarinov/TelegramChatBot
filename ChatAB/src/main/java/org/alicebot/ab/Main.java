@@ -26,7 +26,9 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
-
+import org.telegram.telegrambots.TelegramApiException;
+import org.telegram.telegrambots.bots.TelegramWebhookBot;
+import org.telegram.telegrambots.TelegramBotsApi;
 
 public class Main {
     public static boolean anyKey = false;
@@ -42,6 +44,7 @@ public class Main {
         mainFunction(args);
     }
     public static void mainFunction (String[] args) {
+        TelegramBotsApi dlbBotApi = new TelegramBotsApi();
         String botName = "alice2";
         MagicBooleans.jp_tokenize = false;
         MagicBooleans.trace_mode = true;
